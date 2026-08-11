@@ -96,7 +96,7 @@ textarea { resize: vertical; padding: 12px; }
 .slot-card { height: 71px; display: grid; grid-template-columns: 31px 44px minmax(0, 1fr) 18px; align-items: center; gap: 8px; border: 1px solid #263232; border-radius: 3px; background: #101617; text-align: left; padding: 0 10px 0 0; cursor: pointer; transition: .15s; overflow: hidden; }
 .slot-card:hover { border-color: rgba(241,201,74,.45); background: #131a1b; transform: translateY(-1px); }
 .slot-card.empty { border-style: dashed; opacity: .72; }
-.slot-index { height: 100%; display: grid; place-items: center; writing-mode: vertical-rl; transform: rotate(180deg); font: 8px var(--mono); color: #5d6a67; background: rgba(255,255,255,.018); border-left: 1px solid var(--line-soft); letter-spacing: .08em; }
+.slot-index { height: 100%; display: grid; place-items: center; writing-mode: vertical-rl; text-orientation: upright; font: 8px var(--mono); color: #5d6a67; background: rgba(255,255,255,.018); border-left: 1px solid var(--line-soft); letter-spacing: .08em; }
 .slot-icon, .catalog-icon, .inventory-glyph { width: 40px; height: 40px; display: grid; place-items: center; color: var(--yellow); border: 1px solid #3b4130; background: linear-gradient(135deg, rgba(241,201,74,.12), rgba(241,201,74,.02)); clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px); }
 .slot-copy { min-width: 0; display: grid; gap: 2px; }
 .slot-copy small { font: 8px var(--mono); color: #687572; letter-spacing: .08em; }
