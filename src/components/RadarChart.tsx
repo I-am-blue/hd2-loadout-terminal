@@ -59,7 +59,7 @@ export function RadarChart({ values, critical = [] }: { values: DimensionMap; cr
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    ctx.font = "11px 'Segoe UI', sans-serif";
+    ctx.font = "600 12px 'Microsoft YaHei UI', 'Segoe UI', sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     DIMENSIONS.forEach((dimension, index) => {
