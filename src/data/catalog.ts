@@ -234,9 +234,9 @@ const items: CatalogItem[] = [
   ...makeItems("armor", "护甲战斗配置", armorSeeds),
   ...makeItems("primary", "主武器", primarySeeds),
   ...makeItems("secondary", "副武器", secondarySeeds),
-  ...makeItems("throwable", "投掷物", throwableSeeds),
-  ...makeItems("stratagem", "战略配备", stratagemSeeds),
-  ...makeItems("booster", "强化", boosterSeeds),
+  ...makeItems("throwable", "手雷", throwableSeeds),
+  ...makeItems("stratagem", "战备", stratagemSeeds),
+  ...makeItems("booster", "被动", boosterSeeds),
 ];
 
 const addContext = (

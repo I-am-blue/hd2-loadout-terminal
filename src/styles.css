@@ -184,9 +184,13 @@ textarea { resize: vertical; padding: 12px; }
 .owned-filter { display: flex; align-items: center; gap: 7px; min-width: 115px; justify-content: center; border: 1px solid var(--line); color: #7a8784; font-size: 10px; cursor: pointer; }
 .owned-filter input { display: none; }
 .owned-filter.active { color: var(--yellow); border-color: rgba(241,201,74,.35); background: var(--yellow-soft); }
-.role-row { padding: 0 18px 10px; display: flex; align-items: center; flex-wrap: wrap; gap: 5px; color: #5d6a67; }
-.role-row button { border: 1px solid #283332; background: transparent; color: #778481; font: 8px var(--mono); padding: 4px 6px; cursor: pointer; }
-.role-row button.active { color: var(--yellow); border-color: rgba(241,201,74,.35); }
+.role-row, .stratagem-group-row { padding: 0 18px 10px; display: flex; align-items: center; flex-wrap: wrap; gap: 5px; color: #7f8b87; }
+.role-row button, .stratagem-group-row button { border: 1px solid #34403f; background: transparent; color: #9aa5a2; font: 600 10px var(--mono); padding: 5px 8px; cursor: pointer; }
+.role-row button.active, .stratagem-group-row button.active { color: var(--yellow); border-color: rgba(241,201,74,.55); background: var(--yellow-soft); }
+.stratagem-group-row button.orbital { border-left: 3px solid #da746b; }
+.stratagem-group-row button.eagle { border-left: 3px solid #d9b649; }
+.stratagem-group-row button.blue { border-left: 3px solid #599ec4; }
+.stratagem-group-row button.green { border-left: 3px solid #72a66a; }
 .picker-count { padding: 0 18px; font: 8px var(--mono); color: #5e6a67; }
 .picker-grid { overflow: auto; padding: 12px 18px 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-content: start; gap: 8px; }
 .catalog-card { min-height: 70px; display: grid; grid-template-columns: 42px 1fr 18px; gap: 9px; align-items: center; padding: 7px 9px; border: 1px solid #25302f; background: #101516; text-align: left; cursor: pointer; }
@@ -223,6 +227,19 @@ textarea { resize: vertical; padding: 12px; }
 .empty-state.compact { grid-column: 1/-1; min-height: 210px; }
 
 .inventory-toolbar { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.inventory-categories { flex: 1; }
+.inventory-categories button { flex: 1; font-size: 11px; font-weight: 650; }
+.inventory-stratagem-groups { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; margin-bottom: 10px; }
+.inventory-stratagem-groups button { min-height: 54px; display: grid; align-content: center; gap: 3px; padding: 7px 10px; border: 1px solid var(--line); border-left-width: 4px; background: #0d1213; color: #a7b1ae; text-align: left; cursor: pointer; }
+.inventory-stratagem-groups button:first-child { border-left-color: #7f8b87; }
+.inventory-stratagem-groups button.orbital { border-left-color: #da746b; }
+.inventory-stratagem-groups button.eagle { border-left-color: #d9b649; }
+.inventory-stratagem-groups button.blue { border-left-color: #599ec4; }
+.inventory-stratagem-groups button.green { border-left-color: #72a66a; }
+.inventory-stratagem-groups button:hover, .inventory-stratagem-groups button.active { background: #151c1d; border-top-color: #5b6966; border-right-color: #5b6966; border-bottom-color: #5b6966; }
+.inventory-stratagem-groups button.active { box-shadow: inset 0 0 0 1px rgba(241,201,74,.22); color: var(--yellow); }
+.inventory-stratagem-groups strong { font-size: 11px; }
+.inventory-stratagem-groups small { color: #7f8b87; font-size: 9px; }
 .segmented { display: flex; border: 1px solid var(--line); }
 .segmented button { border: 0; border-right: 1px solid var(--line); background: #0e1314; color: #778481; padding: 0 12px; min-height: 36px; cursor: pointer; font-size: 9px; }
 .segmented button:last-child { border-right: 0; }
@@ -247,6 +264,10 @@ textarea { resize: vertical; padding: 12px; }
 .inventory-item strong { font-size: 9px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .inventory-item small { font: 8px var(--mono); color: #71807c; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .inventory-item em { font-style: normal; color: #64716e; font-size: 8px; }
+.inventory-item em.group-orbital { color: #da8a82; }
+.inventory-item em.group-eagle { color: #d9bd61; }
+.inventory-item em.group-blue { color: #78b4d6; }
+.inventory-item em.group-green { color: #88b781; }
 .inventory-item > i { width: 53px; display: flex; align-items: center; justify-content: flex-end; gap: 4px; font: 7px var(--mono); color: #5d6966; font-style: normal; }
 .inventory-item.owned > i { color: var(--green); }
 

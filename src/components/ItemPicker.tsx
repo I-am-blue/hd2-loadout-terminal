@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Check, Filter, LockKeyhole, Search, X } from "lucide-react";
+import { getStratagemGroup, STRATAGEM_GROUPS, type StratagemGroupId } from "../lib/stratagemGroups";
 import type { CatalogBundle, CatalogItem, ItemSlot } from "../types";
 import { ItemGlyph } from "./ItemGlyph";
 
@@ -7,9 +8,9 @@ const slotNames: Record<ItemSlot, string> = {
   armor: "护甲配置",
   primary: "主武器",
   secondary: "副武器",
-  throwable: "投掷物",
-  stratagem: "战略配备",
-  booster: "强化",
+  throwable: "手雷",
+  stratagem: "战备",
+  booster: "被动",
 };
 
 export function ItemPicker({
@@ -32,15 +33,17 @@ export function ItemPicker({
   const [query, setQuery] = useState("");
   const [ownedOnly, setOwnedOnly] = useState(inventoryEnabled);
   const [role, setRole] = useState("all");
+  const [stratagemGroup, setStratagemGroup] = useState<"all" | StratagemGroupId>("all");
   const allItems = useMemo(() => bundle.items.filter((item) => item.slot === slot), [bundle, slot]);
   const roles = useMemo(() => [...new Set(allItems.flatMap((item) => item.roles))].slice(0, 16), [allItems]);
   const filtered = useMemo(() => {
     const needle = query.trim().toLocaleLowerCase();
     return allItems.filter((item) => {
       const searchable = [item.nameZh, item.nameEn, ...item.aliases, ...item.tags].join(" ").toLocaleLowerCase();
-      return (!needle || searchable.includes(needle)) && (role === "all" || item.roles.includes(role)) && (!ownedOnly || ownedIds.has(item.id));
+      const matchesGroup = slot !== "stratagem" || stratagemGroup === "all" || getStratagemGroup(item) === stratagemGroup;
+      return (!needle || searchable.includes(needle)) && matchesGroup && (role === "all" || item.roles.includes(role)) && (!ownedOnly || ownedIds.has(item.id));
     });
-  }, [allItems, ownedIds, ownedOnly, query, role]);
+  }, [allItems, ownedIds, ownedOnly, query, role, slot, stratagemGroup]);
 
   return (
     <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
@@ -53,7 +56,10 @@ export function ItemPicker({
           <label className="search-box"><Search size={17} /><input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索中文、英文或别名…" /></label>
           <label className={`owned-filter ${ownedOnly ? "active" : ""}`}><input type="checkbox" checked={ownedOnly} onChange={(event) => setOwnedOnly(event.target.checked)} /><LockKeyhole size={15} />仅已解锁</label>
         </div>
-        {roles.length > 0 && (
+        {slot === "stratagem" && (
+          <div className="stratagem-group-row" aria-label="战备分组"><Filter size={14} /><button className={stratagemGroup === "all" ? "active" : ""} onClick={() => setStratagemGroup("all")}>全部战备</button>{STRATAGEM_GROUPS.map((group) => <button key={group.id} className={`${group.id} ${stratagemGroup === group.id ? "active" : ""}`} title={group.description} onClick={() => setStratagemGroup(group.id)}>{group.label}</button>)}</div>
+        )}
+        {slot !== "stratagem" && roles.length > 0 && (
           <div className="role-row"><Filter size={14} /><button className={role === "all" ? "active" : ""} onClick={() => setRole("all")}>全部</button>{roles.map((value) => <button key={value} className={role === value ? "active" : ""} onClick={() => setRole(value)}>{value}</button>)}</div>
         )}
         <div className="picker-count">找到 {filtered.length} / {allItems.length} 项</div>

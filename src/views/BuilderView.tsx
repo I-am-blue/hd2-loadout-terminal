@@ -42,9 +42,9 @@ const slotLabels: Record<ItemSlot, string> = {
   armor: "护甲配置",
   primary: "主武器",
   secondary: "副武器",
-  throwable: "投掷物",
-  stratagem: "战略配备",
-  booster: "强化",
+  throwable: "手雷",
+  stratagem: "战备",
+  booster: "被动",
 };
 
 const scoreLabel = (score: number | null) => {
@@ -220,7 +220,7 @@ export function BuilderView({
             {slotCard("throwable", selection.throwableId)}
             {slotCard("booster", selection.boosterId)}
           </div>
-          <div className="subsection-label"><span>STRATAGEM ARRAY</span><span>4 个不可重复项目</span></div>
+          <div className="subsection-label"><span>战备 · 轨道 / 飞鹰 / 蓝 / 绿</span><span>4 个不可重复项目</span></div>
           <div className="slot-grid stratagem-slots">
             {[0, 1, 2, 3].map((index) => slotCard("stratagem", selection.stratagemIds[index], index))}
           </div>
