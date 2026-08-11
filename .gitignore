@@ -13,3 +13,6 @@ vite.config.d.ts
 *.msi
 *.exe
 *.sig
+
+# Local-only Wiki asset reference. Copyright status varies by file; do not publish.
+reference/wiki-image-index/
