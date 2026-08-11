@@ -169,11 +169,14 @@ export interface AiSettings {
   hasApiKey: boolean;
 }
 
+export type UiScale = "extra-small" | "small" | "medium" | "large" | "extra-large";
+
 export interface AppState {
   savedLoadouts: Loadout[];
   ownedItemIds: string[];
   inventoryEnabled: boolean;
   ai: AiSettings;
   aiCache: Record<string, AiReport>;
+  uiScale: UiScale;
   lastCatalogCheck?: string;
 }

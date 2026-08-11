@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { catalog as bundledCatalog } from "./data/catalog";
 import { loadCatalog } from "./lib/catalogLoader";
+import { applyUiScale } from "./lib/uiScale";
 import { useAppState } from "./hooks/useAppState";
 import type { CombatContext, LoadoutSelection } from "./types";
 import { BuilderView } from "./views/BuilderView";
@@ -56,6 +57,11 @@ export default function App() {
   const { state, setState, hydrated } = useAppState();
 
   useEffect(() => { void loadCatalog().then(setCatalog); }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    void applyUiScale(state.uiScale).catch(() => undefined);
+  }, [hydrated, state.uiScale]);
 
   useEffect(() => {
     if (!hydrated || !("__TAURI_INTERNALS__" in window)) return;

@@ -9,6 +9,7 @@ export const DEFAULT_STATE: AppState = {
   inventoryEnabled: false,
   ai: { baseUrl: "https://api.openai.com/v1", model: "gpt-4.1-mini", hasApiKey: false },
   aiCache: {},
+  uiScale: "medium",
 };
 
 const runningInTauri = () => "__TAURI_INTERNALS__" in window;
