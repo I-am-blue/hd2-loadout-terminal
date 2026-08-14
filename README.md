@@ -27,6 +27,15 @@ pnpm tauri build
 
 评分、数据结构和分享码测试位于 `src/**/*.test.ts`。应用的主要数据源在 `src/data/catalog.ts`；游戏事实仅在维护阶段人工交叉核对，运行时不会连接社区 API。
 
+## 项目记忆与跨设备继续开发
+
+- [Codex 项目指令](AGENTS.md)
+- [项目上下文](docs/PROJECT_CONTEXT.md)
+- [v0.1 产品需求基线](docs/PRODUCT_REQUIREMENTS.md)
+- [开发状态与交接记录](docs/DEVELOPMENT_STATUS.md)
+
+在另一台电脑克隆本仓库并从仓库根目录启动 Codex 后，`AGENTS.md` 会提供项目级长期约束。开始新任务前仍应先核对项目上下文、产品需求和开发状态；完成阶段性功能后同步更新开发状态。
+
 ## 更新签名
 
 发行数据清单必须包含 `schemaVersion`、`dataVersion`、`minAppVersion`、`assetUrl`、`sha256` 和 `signature`。`signature` 是对数据包 SHA-256 摘要执行 Ed25519 签名后的 Base64 值。构建发行版时设置：
