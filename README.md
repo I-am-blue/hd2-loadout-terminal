@@ -33,6 +33,7 @@ pnpm tauri build
 - [项目上下文](docs/PROJECT_CONTEXT.md)
 - [v0.1 产品需求基线](docs/PRODUCT_REQUIREMENTS.md)
 - [开发状态与交接记录](docs/DEVELOPMENT_STATUS.md)
+- [Wiki 图片名称与许可核验报告](docs/WIKI_IMAGE_INDEX_REPORT.md)
 
 在另一台电脑克隆本仓库并从仓库根目录启动 Codex 后，`AGENTS.md` 会提供项目级长期约束。开始新任务前仍应先核对项目上下文、产品需求和开发状态；完成阶段性功能后同步更新开发状态。
 
@@ -47,4 +48,4 @@ pnpm tauri build
 
 ## 许可与贡献
 
-源代码使用 [MIT](LICENSE) 许可证。标准化数据、评分标签与第三方素材不在 MIT 授权范围内，详见 [DATA_RIGHTS.md](DATA_RIGHTS.md)。数据修订通过 Issue 提议，由维护者核验后录入；数据目录不直接接收外部 PR。
+源代码使用 [MIT](LICENSE) 许可证。标准化数据、评分标签与第三方素材不在 MIT 授权范围内，详见 [DATA_RIGHTS.md](DATA_RIGHTS.md)。公开参考目录中的 CC BY-NC-SA 4.0 图片按其逐文件署名清单授权，不进入应用或安装包。数据修订通过 Issue 提议，由维护者核验后录入；数据目录不直接接收外部 PR。
