@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
+    "build:wiki-publishable-index": "node tools/build-publishable-wiki-index.mjs",
     "tauri": "tauri",
     "validate:data": "vitest run src/data/catalog.test.ts"
   },
